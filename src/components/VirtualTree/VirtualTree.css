@@ -1,0 +1,126 @@
+.virtual-tree-container {
+  position: relative;
+  background: #fff;
+}
+
+.virtual-tree-content {
+  position: relative;
+  width: 100%;
+}
+
+.tree-node {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+.tree-node:hover {
+  background-color: #f5f5f5;
+}
+
+.tree-node.dragging {
+  opacity: 0.5;
+  background-color: #e6f7ff;
+}
+
+.tree-node.drop-target {
+  background-color: #e6f7ff;
+}
+
+.tree-node.drop-indicator-before {
+  border-top: 2px solid #1890ff;
+}
+
+.tree-node.drop-indicator-after {
+  border-bottom: 2px solid #1890ff;
+}
+
+.tree-node.drop-indicator-inside {
+  background-color: #bae7ff;
+  border: 2px dashed #1890ff;
+}
+
+.tree-node-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  width: 100%;
+  min-height: 32px;
+}
+
+.tree-node-expand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  color: #8c8c8c;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.tree-node-expand-icon:hover {
+  color: #1890ff;
+}
+
+.tree-node-expand-placeholder {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.tree-node-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #8c8c8c;
+}
+
+.tree-node-title {
+  flex: 1;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tree-node-extra {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-left: auto;
+}
+
+/* 滚动条样式 */
+.virtual-tree-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.virtual-tree-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.virtual-tree-container::-webkit-scrollbar-thumb {
+  background: #bfbfbf;
+  border-radius: 4px;
+}
+
+.virtual-tree-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* 拖拽时的光标 */
+.tree-node[draggable="true"] {
+  cursor: move;
+}
+
+.tree-node[draggable="true"]:active {
+  cursor: grabbing;
+}
